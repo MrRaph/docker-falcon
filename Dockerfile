@@ -6,7 +6,7 @@ ONBUILD COPY requirements.txt /tmp/requirements.txt
 
 ONBUILD RUN apk --update add --virtual build-dependencies libffi-dev openssl-dev python-dev py-pip build-base \
   && pip install --upgrade pip \
-  && pip install falcon supervisor-stdout \
+  && pip install falcon supervisor-stdout gunicorn \
   && pip install -r /tmp/requirements.txt \
   && apk del build-dependencies
 
